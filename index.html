@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1 id="form-title">Contact Us</h1>
+
+      <form id="contact-form" novalidate aria-labelledby="form-title">
+        <div class="form-grid">
+
+          <div class="row two">
+            <div class="field">
+              <label for="first-name">First Name<span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="first-name" name="first-name" autocomplete="given-name"
+                     required aria-required="true" aria-describedby="first-name-error" />
+              <p class="error" id="first-name-error"></p>
+            </div>
+            <div class="field">
+              <label for="last-name">Last Name<span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="last-name" name="last-name" autocomplete="family-name"
+                     required aria-required="true" aria-describedby="last-name-error" />
+              <p class="error" id="last-name-error"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address<span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email"
+                   required aria-required="true" aria-describedby="email-error" />
+            <p class="error" id="email-error"></p>
+          </div>
+
+          <fieldset aria-required="true" aria-describedby="query-error">
+            <legend>Query Type<span class="req" aria-hidden="true">*</span></legend>
+            <div class="radio-group">
+              <label class="radio-option" for="general">
+                <input type="radio" id="general" name="query" value="general" required />
+                General Enquiry
+              </label>
+              <label class="radio-option" for="support">
+                <input type="radio" id="support" name="query" value="support" />
+                Support Request
+              </label>
+            </div>
+            <p class="error" id="query-error" style="margin-top:.5rem"></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="message">Message<span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required aria-required="true"
+                      aria-describedby="message-error"></textarea>
+            <p class="error" id="message-error"></p>
+          </div>
+
+          <div class="field">
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" required aria-required="true"
+                     aria-describedby="consent-error" />
+              <label for="consent">I consent to being contacted by the team<span class="req" aria-hidden="true">*</span></label>
+            </div>
+            <p class="error" id="consent-error"></p>
+          </div>
+
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Live region: always in the DOM so screen readers announce changes -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <p class="toast-title">
+      <svg width="20" height="20" viewBox="0 0 20 21" fill="none" aria-hidden="true">
+        <path fill="#fff" d="M14.28 7.72a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47 3.97-3.97a.75.75 0 0 1 1.06 0Z"/>
+        <path stroke="#fff" stroke-width="1.5" d="M10 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z"/>
+      </svg>
+      <span id="toast-title"></span>
+    </p>
+    <p class="toast-text" id="toast-text"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
